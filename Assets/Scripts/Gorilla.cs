@@ -27,29 +27,23 @@ public class Gorilla : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.touchCount>0)
-        {
-            touch = Input.GetTouch(0);
 
-            if (touch.phase == TouchPhase.Began)
+        if (Input.GetKeyDown(KeyCode.Space))
             {
-                if (anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
-                {
-                    anim.SetTrigger("reach");
-                    leftArm.position = Arrow.position - offset;
-                    righttArm.position = Arrow.position + offset;
-                }
-                else
-                {
-                    anim.ResetTrigger("score");
-                    anim.ResetTrigger("foul");
-
-                }
+            if (anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+            {
+                anim.SetTrigger("reach");
+                leftArm.position = Arrow.position - offset;
+                righttArm.position = Arrow.position + offset;
             }
-        
+            else
+            {
+                anim.ResetTrigger("score");
+                anim.ResetTrigger("foul");
+
+            }
 
         }
-        
     }
    
    

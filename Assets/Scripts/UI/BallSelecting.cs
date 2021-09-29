@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BallSelecting : MonoBehaviour
@@ -11,6 +10,7 @@ public class BallSelecting : MonoBehaviour
     [SerializeField] intSO scoreSO;
     [SerializeField] intSO sprireSO;
     Image image;
+    [SerializeField] SFX sfx;
     void Start()
     {
         image = GetComponent<Image>();   
@@ -20,7 +20,8 @@ public class BallSelecting : MonoBehaviour
         if(scoreSO.value>= requiredScore)
         {
             sprireSO.value = spriteOrder;
-            SceneManager.LoadScene(1);
+            sfx.HealingSfx();
+            
         }
 
     }
